@@ -19,6 +19,8 @@ import { environment } from '../environments/environment';
 import { ErrorPrintInterceptor } from './core/interceptors/error-print.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { FormsModule } from '@angular/forms';
+
 const interceptors: Provider[] = [
   {
     provide: HTTP_INTERCEPTORS,
@@ -43,6 +45,7 @@ const interceptors: Provider[] = [
     HttpClientModule,
     MatBadgeModule,
     MatSnackBarModule,
+    FormsModule
   ],
   providers: [
     interceptors,

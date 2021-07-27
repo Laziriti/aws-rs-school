@@ -26,13 +26,9 @@ export class ManageProductsComponent implements OnInit {
     this.products$ = this.productsService.getProducts();
   }
 
-  onUploadCSV(): void {
-    if (!this.selectedFile) {
-      return;
-    }
-
+  onUploadCSV(test:any): void {
     this.manageProductsService
-      .uploadProductsCSV(this.selectedFile)
+      .uploadProductsCSV(test)
       .subscribe(() => {
         this.selectedFile = null;
         this.cdr.markForCheck();

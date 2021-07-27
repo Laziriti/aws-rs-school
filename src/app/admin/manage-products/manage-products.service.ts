@@ -9,28 +9,21 @@ export class ManageProductsService extends ApiService {
     super(injector);
   }
 
-  uploadProductsCSV(file: File): Observable<unknown> {
+  uploadProductsCSV(file: any): Observable<unknown> {
     if (!this.endpointEnabled('import')) {
       console.warn(
         'Endpoint "import" is disabled. To enable change your environment.ts config'
       );
       return EMPTY;
     }
+    const url = this.getUrl('import', 'createProduct');
 
-    return this.getPreSignedUrl(file.name).pipe(
-      switchMap((url) =>
-        this.http.put(url, file, {
-          headers: {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            'Content-Type': 'text/csv',
-          },
-        })
-      )
-    );
+    return  this.http.post(url, file)
+
   }
 
   private getPreSignedUrl(fileName: string): Observable<string> {
-    const url = this.getUrl('import', 'import');
+    const url = this.getUrl('import', 'createProduct');
 
     return this.http.get<string>(url, {
       params: {
