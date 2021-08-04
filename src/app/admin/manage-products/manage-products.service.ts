@@ -29,6 +29,11 @@ export class ManageProductsService extends ApiService {
     );
   }
 
+  createProduct(body: any): Observable<unknown> {
+    const url = this.getUrl('bff', 'createProduct');
+    return this.http.post(url, body)
+  }
+
   private getPreSignedUrl(fileName: string): Observable<string> {
     const url = this.getUrl('import', 'import');
 

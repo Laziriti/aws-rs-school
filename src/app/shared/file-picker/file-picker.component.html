@@ -23,3 +23,24 @@
     Select file
   </button>
 </ng-template>
+
+<form>
+  <div>
+    <label>Название</label>
+    <input type="text" required name="title"  [(ngModel)]="productForm.title"/>
+  </div>
+  <div>
+    <label>Описание</label>
+    <input type="text" required name="description" [(ngModel)]="productForm.description"/>
+  </div>
+  <div>
+    <label>Цена</label>
+    <input type="number" required name="price" [(ngModel)]="productForm.price" />
+  </div>
+  <div>
+    <label>Количество</label>
+    <input type="number" required name="count" [(ngModel)]="productForm.count"/>
+  </div>
+
+  <button (click)="create()">создать</button>
+</form>
