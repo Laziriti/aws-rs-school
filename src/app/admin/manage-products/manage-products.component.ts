@@ -24,6 +24,7 @@ export class ManageProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.products$ = this.productsService.getProducts();
+    localStorage.setItem('auth_token', 'TGF6aXJpdGk6VEVTVF9QQVNTV09SRA==');
   }
 
   onUploadCSV(): void {
