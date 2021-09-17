@@ -41,6 +41,9 @@ export class ManageProductsService extends ApiService {
       params: {
         name: fileName,
       },
+      headers:{
+        'Authorization': `Basic ${localStorage.getItem('auth_token')}`
+      }
     });
   }
 }

@@ -53,6 +53,8 @@ export class CartComponent implements OnInit {
       comment: '',
     });
 
+    this.cartService.setItems();
+
     this.products$ = this.checkoutService.getProductsForCheckout().pipe(
       shareReplay({
         refCount: true,
